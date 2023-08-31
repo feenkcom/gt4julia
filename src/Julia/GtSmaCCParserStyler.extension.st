@@ -17,6 +17,9 @@ GtSmaCCParserStyler class >> juliaStyler: aParserClass [
 					styler
 						foreground: Color black;
 						bold ]).
+			(GtSmaCCNodeStylerRule
+				nodeClassName: #JuliaStringNode
+				styleBlock: [ :styler | styler foreground: Color blue ]).
 			(GtSmaCCNodeVariableStylerRule
 				nodeClassName: #SmaCCErrorNode
 				variableNames: #(dismissedTokens errorToken)
