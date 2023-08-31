@@ -15,10 +15,17 @@ GtLSPJuliaModel class >> extensions [
 ]
 
 { #category : #accessing }
+GtLSPJuliaModel class >> initializeJuliaLSP [
+	self executable: 'julia'.
+	self
+		arguments: {'-e'. 'using LanguageServer; runserver()'} 
+]
+
+{ #category : #accessing }
 GtLSPJuliaModel class >> initializeJuliaLSPUsingEnvironment: anEnvironment [
 	self executable: 'julia'.
 	self
-		arguments: {'-e'. 'using LanguageServer; runserver()'. anEnvironment} 
+		arguments: {'-e'. 'using LanguageServer; runserver()'} 
 ]
 
 { #category : #accessing }
