@@ -1,1 +1,1 @@
-## Installation```Metacello new	repository: 'github://hellerve/julia:master/src';	baseline: 'Julia';	load```
+## Installation```Metacello new	repository: 'github://hellerve/julia:main/src';	baseline: 'Julia';	load```
