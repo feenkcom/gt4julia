@@ -7,7 +7,7 @@ Class {
 { #category : #'generated-initialization' }
 JuliaScanner class >> initializeKeywordMap [
 	keywordMap := Dictionary new.
-	#(#(28 '&&' 1) #(28 '::' 5) #(28 '< :' 6) #(28 'else' 8) #(28 'elseif' 9) #(28 'end' 10) #(28 'function' 11) #(28 'if' 12) #(28 'module' 13) #(28 'mutable' 14) #(28 'struct' 15) #(28 '||' 17))
+	#(#(25 '&&' 1) #(25 '::' 5) #(25 '< :' 6) #(25 'else' 8) #(25 'elseif' 9) #(25 'end' 10) #(25 'function' 11) #(25 'if' 12) #(25 'module' 13) #(25 'mutable' 14) #(25 'struct' 15) #(25 '||' 17))
 		do: [ :each | 
 			(keywordMap at: each first ifAbsentPut: [ Dictionary new ])
 				at: (each at: 2)
@@ -27,7 +27,7 @@ JuliaScanner >> errorTokenId [
 
 { #category : #generated }
 JuliaScanner >> scan1 [
-	self recordMatch: #(22 25 27 28).
+	self recordMatch: #(19 22 24 25).
 	self step.
 	currentCharacter == $" ifTrue: [ ^ self scan1X4 ].
 	^ self scan1X9
@@ -35,7 +35,7 @@ JuliaScanner >> scan1 [
 
 { #category : #generated }
 JuliaScanner >> scan1X1 [
-	self recordMatch: #(28).
+	self recordMatch: #(25).
 	self step.
 	currentCharacter == $" ifTrue: [ ^ self scan5 ].
 	currentCharacter == $/ ifTrue: [ ^ self scan4 ].
@@ -43,7 +43,7 @@ JuliaScanner >> scan1X1 [
 	(currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
 				or: [ currentCharacter >= (Character value: 14) ] ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -53,14 +53,14 @@ JuliaScanner >> scan1X1 [
 
 { #category : #generated }
 JuliaScanner >> scan1X2 [
-	self recordMatch: #(28).
+	self recordMatch: #(25).
 	self step.
 	currentCharacter == $" ifTrue: [ ^ self scan5 ].
 	currentCharacter == $= ifTrue: [ ^ self scan2 ].
 	(currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
 				or: [ currentCharacter >= (Character value: 14) ] ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -70,15 +70,15 @@ JuliaScanner >> scan1X2 [
 
 { #category : #generated }
 JuliaScanner >> scan1X3 [
-	self recordMatch: #(28).
+	self recordMatch: #(25).
 	self step.
 	currentCharacter == $"
-		ifTrue: [ self recordMatch: #(23 28).
+		ifTrue: [ self recordMatch: #(20 25).
 			self step.
 			(currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
 						or: [ currentCharacter >= (Character value: 14) ] ])
-				ifTrue: [ [ self recordMatch: #(28).
+				ifTrue: [ [ self recordMatch: #(25).
 					self step.
 					currentCharacter <= Character tab
 						or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -88,7 +88,7 @@ JuliaScanner >> scan1X3 [
 	(currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
 				or: [ currentCharacter >= (Character value: 14) ] ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -98,14 +98,14 @@ JuliaScanner >> scan1X3 [
 
 { #category : #generated }
 JuliaScanner >> scan1X4 [
-	[ self recordMatch: #(22 23 28).
+	[ self recordMatch: #(19 20 25).
 	self step.
 	currentCharacter == $" ] whileTrue.
 	currentCharacter == $= ifTrue: [ ^ self scan2 ].
 	(currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
 				or: [ currentCharacter >= (Character value: 14) ] ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -115,13 +115,13 @@ JuliaScanner >> scan1X4 [
 
 { #category : #generated }
 JuliaScanner >> scan1X5 [
-	self recordMatch: #(28).
+	self recordMatch: #(25).
 	self step.
 	currentCharacter == $" ifTrue: [ ^ self scan5 ].
 	(currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
 				or: [ currentCharacter >= (Character value: 14) ] ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -131,7 +131,7 @@ JuliaScanner >> scan1X5 [
 
 { #category : #generated }
 JuliaScanner >> scan1X6 [
-	[ self recordMatch: #(28).
+	[ self recordMatch: #(25).
 	self step.
 	currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -141,14 +141,14 @@ JuliaScanner >> scan1X6 [
 { #category : #generated }
 JuliaScanner >> scan1X7 [
 	self step.
-	currentCharacter == $" ifTrue: [ ^ self recordAndReportMatch: #(24) ].
+	currentCharacter == $" ifTrue: [ ^ self recordAndReportMatch: #(21) ].
 	^ self reportLastMatch
 ]
 
 { #category : #generated }
 JuliaScanner >> scan1X8 [
 	self step.
-	currentCharacter == $" ifTrue: [ ^ self recordAndReportMatch: #(22) ].
+	currentCharacter == $" ifTrue: [ ^ self recordAndReportMatch: #(19) ].
 	^ self reportLastMatch
 ]
 
@@ -170,13 +170,13 @@ JuliaScanner >> scan1X9 [
 
 { #category : #generated }
 JuliaScanner >> scan2 [
-	self recordMatch: #(28).
+	self recordMatch: #(25).
 	self step.
 	currentCharacter == $" ifTrue: [ ^ self scan3 ].
 	(currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
 				or: [ currentCharacter >= (Character value: 14) ] ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -186,12 +186,12 @@ JuliaScanner >> scan2 [
 
 { #category : #generated }
 JuliaScanner >> scan3 [
-	self recordMatch: #(25 28).
+	self recordMatch: #(22 25).
 	self step.
 	(currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
 				or: [ currentCharacter >= (Character value: 14) ] ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -201,13 +201,13 @@ JuliaScanner >> scan3 [
 
 { #category : #generated }
 JuliaScanner >> scan4 [
-	self recordMatch: #(28).
+	self recordMatch: #(25).
 	self step.
 	currentCharacter == $= ifTrue: [ ^ self scan2 ].
 	(currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
 				or: [ currentCharacter >= (Character value: 14) ] ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -217,12 +217,12 @@ JuliaScanner >> scan4 [
 
 { #category : #generated }
 JuliaScanner >> scan5 [
-	self recordMatch: #(22 28).
+	self recordMatch: #(19 25).
 	self step.
 	(currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
 				or: [ currentCharacter >= (Character value: 14) ] ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -232,18 +232,18 @@ JuliaScanner >> scan5 [
 
 { #category : #generated }
 JuliaScanner >> scan6 [
-	self recordMatch: #(28).
+	self recordMatch: #(25).
 	self step.
 	currentCharacter isDigit
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter == $/
-				ifTrue: [ self recordMatch: #(21 28).
+				ifTrue: [ self recordMatch: #(25 27).
 					self step.
 					(currentCharacter <= Character tab
 						or: [ (currentCharacter between: Character pageUp and: Character newPage)
 								or: [ currentCharacter >= (Character value: 14) ] ])
-						ifTrue: [ [ self recordMatch: #(28).
+						ifTrue: [ [ self recordMatch: #(25).
 							self step.
 							currentCharacter <= Character tab
 								or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -253,7 +253,7 @@ JuliaScanner >> scan6 [
 			(currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
 						or: [ currentCharacter >= (Character value: 14) ] ])
-				ifTrue: [ [ self recordMatch: #(28).
+				ifTrue: [ [ self recordMatch: #(25).
 					self step.
 					currentCharacter <= Character tab
 						or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -261,15 +261,15 @@ JuliaScanner >> scan6 [
 			^ self reportLastMatch ].
 	((currentCharacter between: $A and: $Z)
 		or: [ currentCharacter between: $a and: $z ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter == $/
-				ifTrue: [ self recordMatch: #(20 28).
+				ifTrue: [ self recordMatch: #(25 26).
 					self step.
 					(currentCharacter <= Character tab
 						or: [ (currentCharacter between: Character pageUp and: Character newPage)
 								or: [ currentCharacter >= (Character value: 14) ] ])
-						ifTrue: [ [ self recordMatch: #(28).
+						ifTrue: [ [ self recordMatch: #(25).
 							self step.
 							currentCharacter <= Character tab
 								or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -282,7 +282,7 @@ JuliaScanner >> scan6 [
 	(currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
 				or: [ currentCharacter >= (Character value: 14) ] ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -292,7 +292,7 @@ JuliaScanner >> scan6 [
 
 { #category : #generated }
 JuliaScanner >> scanForToken [
-	self recordMatch: #(28).
+	self recordMatch: #(25).
 	self step.
 	currentCharacter == Character lf ifTrue: [ ^ self scanForTokenX9 ].
 	currentCharacter == Character cr ifTrue: [ ^ self scanForTokenX11 ].
@@ -303,13 +303,13 @@ JuliaScanner >> scanForToken [
 
 { #category : #generated }
 JuliaScanner >> scanForTokenX1 [
-	self recordMatch: #(7 25 28).
+	self recordMatch: #(7 22 25).
 	self step.
 	currentCharacter == $" ifTrue: [ ^ self scan3 ].
 	(currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
 				or: [ currentCharacter >= (Character value: 14) ] ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -319,7 +319,7 @@ JuliaScanner >> scanForTokenX1 [
 
 { #category : #generated }
 JuliaScanner >> scanForTokenX10 [
-	[ self recordMatch: #(26).
+	[ self recordMatch: #(23).
 	self step.
 	currentCharacter isSeparator or: [ currentCharacter == Character pageUp ] ]
 		whileTrue.
@@ -328,7 +328,7 @@ JuliaScanner >> scanForTokenX10 [
 
 { #category : #generated }
 JuliaScanner >> scanForTokenX11 [
-	[ self recordMatch: #(26).
+	[ self recordMatch: #(23).
 	self step.
 	currentCharacter isSeparator or: [ currentCharacter == Character pageUp ] ]
 		whileTrue.
@@ -345,7 +345,7 @@ JuliaScanner >> scanForTokenX12 [
 	currentCharacter == ${ ifTrue: [ ^ self scanForTokenX3 ].
 	currentCharacter == $} ifTrue: [ ^ self scanForTokenX2 ].
 	(currentCharacter isSeparator or: [ currentCharacter == Character pageUp ])
-		ifTrue: [ [ self recordMatch: #(26 28).
+		ifTrue: [ [ self recordMatch: #(23 25).
 			self step.
 			(currentCharacter == Character lf or: [ currentCharacter == Character cr ])
 				ifTrue: [ ^ self scanForTokenX10 ].
@@ -357,12 +357,12 @@ JuliaScanner >> scanForTokenX12 [
 
 { #category : #generated }
 JuliaScanner >> scanForTokenX2 [
-	self recordMatch: #(18 28).
+	self recordMatch: #(18 25).
 	self step.
 	(currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
 				or: [ currentCharacter >= (Character value: 14) ] ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -372,12 +372,12 @@ JuliaScanner >> scanForTokenX2 [
 
 { #category : #generated }
 JuliaScanner >> scanForTokenX3 [
-	self recordMatch: #(16 28).
+	self recordMatch: #(16 25).
 	self step.
 	(currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
 				or: [ currentCharacter >= (Character value: 14) ] ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -387,12 +387,12 @@ JuliaScanner >> scanForTokenX3 [
 
 { #category : #generated }
 JuliaScanner >> scanForTokenX4 [
-	self recordMatch: #(19 28).
+	self recordMatch: #(25 28).
 	self step.
 	(currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
 				or: [ currentCharacter >= (Character value: 14) ] ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -402,12 +402,12 @@ JuliaScanner >> scanForTokenX4 [
 
 { #category : #generated }
 JuliaScanner >> scanForTokenX5 [
-	self recordMatch: #(4 28).
+	self recordMatch: #(4 25).
 	self step.
 	(currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
 				or: [ currentCharacter >= (Character value: 14) ] ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -417,12 +417,12 @@ JuliaScanner >> scanForTokenX5 [
 
 { #category : #generated }
 JuliaScanner >> scanForTokenX6 [
-	self recordMatch: #(3 28).
+	self recordMatch: #(3 25).
 	self step.
 	(currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
 				or: [ currentCharacter >= (Character value: 14) ] ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -432,12 +432,12 @@ JuliaScanner >> scanForTokenX6 [
 
 { #category : #generated }
 JuliaScanner >> scanForTokenX7 [
-	self recordMatch: #(2 28).
+	self recordMatch: #(2 25).
 	self step.
 	(currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
 				or: [ currentCharacter >= (Character value: 14) ] ])
-		ifTrue: [ [ self recordMatch: #(28).
+		ifTrue: [ [ self recordMatch: #(25).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -447,7 +447,7 @@ JuliaScanner >> scanForTokenX7 [
 
 { #category : #generated }
 JuliaScanner >> scanForTokenX8 [
-	[ self recordMatch: #(28).
+	[ self recordMatch: #(25).
 	self step.
 	currentCharacter <= Character tab
 		or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -456,10 +456,10 @@ JuliaScanner >> scanForTokenX8 [
 
 { #category : #generated }
 JuliaScanner >> scanForTokenX9 [
-	self recordMatch: #(19 26).
+	self recordMatch: #(23 28).
 	self step.
 	(currentCharacter isSeparator or: [ currentCharacter == Character pageUp ])
-		ifTrue: [ [ self recordMatch: #(26).
+		ifTrue: [ [ self recordMatch: #(23).
 			self step.
 			currentCharacter isSeparator or: [ currentCharacter == Character pageUp ] ]
 				whileTrue ].
@@ -468,5 +468,5 @@ JuliaScanner >> scanForTokenX9 [
 
 { #category : #generated }
 JuliaScanner >> tokenActions [
-	^ #(nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil #whitespace nil #comment)
+	^ #(nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil #whitespace nil #comment)
 ]
