@@ -15,10 +15,10 @@ GtLSPJuliaModel class >> extensions [
 ]
 
 { #category : #accessing }
-GtLSPJuliaModel class >> initializeJuliaLSPOnPath: path [
+GtLSPJuliaModel class >> initializeJuliaLSP [
 	self executable: 'julia'.
 	self
-		arguments: {'--project=', path. '-e'. '"using LanguageServer; runserver()"'}
+		arguments: {'-e'. '"using LanguageServer; runserver()"'} asOrderedCollection
 ]
 
 { #category : #accessing }
@@ -29,7 +29,7 @@ GtLSPJuliaModel class >> languageType [
 { #category : #accessing }
 GtLSPJuliaModel class >> onDirectory: aDirectory [
 	self arguments add: aDirectory.
-	super onDirectory: aDirectory
+	^ super onDirectory: aDirectory
 ]
 
 { #category : #accessing }
