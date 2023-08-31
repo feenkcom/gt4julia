@@ -121,11 +121,6 @@ TJuliaProgramNodeVisitor >> visitProgram: aProgram [
 ]
 
 { #category : #generated }
-TJuliaProgramNodeVisitor >> visitString: aString [
-	^ self visitProgram: aString
-]
-
-{ #category : #generated }
 TJuliaProgramNodeVisitor >> visitStructDefinition: aStructDefinition [
 	^ self visitProgram: aStructDefinition
 ]
