@@ -64,7 +64,7 @@ JuliaScanner >> scanForToken [
 	currentCharacter == $, ifTrue: [ ^ self recordAndReportMatch: #(4) ].
 	currentCharacter == $/ ifTrue: [ ^ self scanForTokenX4 ].
 	currentCharacter == $: ifTrue: [ ^ self scanForTokenX9 ].
-	currentCharacter == $< ifTrue: [ ^ self scanForTokenX10 ].
+	currentCharacter == $< ifTrue: [ ^ self scanForTokenX11 ].
 	currentCharacter == $= ifTrue: [ ^ self scanForTokenX8 ].
 	currentCharacter == ${ ifTrue: [ ^ self recordAndReportMatch: #(16) ].
 	^ self scanForTokenX13
@@ -83,18 +83,18 @@ JuliaScanner >> scanForTokenX1 [
 
 { #category : #generated }
 JuliaScanner >> scanForTokenX10 [
+	[ self recordMatch: #(27).
 	self step.
-	currentCharacter == Character space
-		ifTrue: [ self step.
-			currentCharacter == $: ifTrue: [ ^ self recordAndReportMatch: #(6) ] ].
+	currentCharacter between: $0 and: $9 ] whileTrue.
 	^ self reportLastMatch
 ]
 
 { #category : #generated }
 JuliaScanner >> scanForTokenX11 [
-	[ self recordMatch: #(27).
 	self step.
-	currentCharacter isDigit ] whileTrue.
+	currentCharacter == Character space
+		ifTrue: [ self step.
+			currentCharacter == $: ifTrue: [ ^ self recordAndReportMatch: #(6) ] ].
 	^ self reportLastMatch
 ]
 
@@ -122,7 +122,7 @@ JuliaScanner >> scanForTokenX13 [
 	currentCharacter == $| ifTrue: [ ^ self scanForTokenX3 ].
 	currentCharacter == $} ifTrue: [ ^ self recordAndReportMatch: #(18) ].
 	currentCharacter == $~ ifTrue: [ ^ self recordAndReportMatch: #(22) ].
-	currentCharacter isDigit ifTrue: [ ^ self scanForTokenX11 ].
+	(currentCharacter between: $0 and: $9) ifTrue: [ ^ self scanForTokenX10 ].
 	('$^' includes: currentCharacter) ifTrue: [ ^ self scan3 ].
 	(currentCharacter between: $+ and: $-) ifTrue: [ ^ self scanForTokenX7 ].
 	(currentCharacter == $\ or: [ currentCharacter = (Character value: 8901) ])

@@ -26,6 +26,11 @@ TJuliaProgramNodeVisitor >> visitAssignmentExpression: anAssignmentExpression [
 ]
 
 { #category : #generated }
+TJuliaProgramNodeVisitor >> visitBaseExpression: aBaseExpression [
+	^ self visitProgram: aBaseExpression
+]
+
+{ #category : #generated }
 TJuliaProgramNodeVisitor >> visitBinaryExpression: aBinaryExpression [
 	^ self visitProgram: aBinaryExpression
 ]

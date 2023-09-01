@@ -37,7 +37,7 @@ JuliaParser class >> ambiguousTransitions [
 
 { #category : #'generated-accessing' }
 JuliaParser class >> cacheId [
-	^'2023-08-31T12:24:21.363083-05:00'
+	^'2023-09-01T11:47:40.806888+02:00'
 ]
 
 { #category : #generated }
@@ -66,7 +66,7 @@ JuliaParser class >> definitionComment [
 
 <terminator> : \n | \r | \;;
 
-Program : <terminator>* Expressions;
+Program : <terminator>* Expressions {{}};
 
 Expressions
 	: Expression <terminator>+
@@ -77,14 +77,14 @@ Expression
 	: BinaryExpression
 	;
 BaseExpression
-	: <number>
-	| <string> 
-	| <identifier>
-	| CallExpression
-	| ModuleExpression
-	| FunctionExpression
-	| ConditionalExpression
-	| StructDefinition
+	: <number> {{}}
+	| <string>  {{}}
+	| <identifier> {{}}
+	| CallExpression {{}}
+	| ModuleExpression {{}}
+	| FunctionExpression {{}}
+	| ConditionalExpression {{}}
+	| StructDefinition {{}}
 	;
 
 ModuleExpression : ""module"" ExtendedIdentifier ""end"" {{}};
@@ -149,7 +149,7 @@ BinaryExpression
 	
 
 PlusExpression 
-	: PlusExpression <plusOperator> ArrowExpression{{}}
+	: PlusExpression 'lhs' <plusOperator> ArrowExpression 'rhs'{{}}
 	| ArrowExpression
 	;
 
@@ -196,65 +196,65 @@ ElseClause : ""else"" Expressions {{}};"
 JuliaParser class >> reduceTable [
 ^#(
 	#(31 0 #nil 494593 false) 
-	#(35 1 #liftFirstValue: 644098 false) 
-	#(35 1 #liftFirstValue: 644099 false) 
-	#(35 1 #liftFirstValue: 644097 false) 
+	#(35 1 #reduceActionForBaseExpression2: 649218 false) 
+	#(35 1 #reduceActionForBaseExpression2: 649219 false) 
+	#(35 1 #reduceActionForBaseExpression2: 649217 false) 
 	#(31 2 #liftFirstValue: 494594 false) 
-	#(30 2 #liftFirstValue: 484353 false) 
-	#(56 1 #liftFirstValue: 2623490 false) 
-	#(35 1 #liftFirstValue: 644101 false) 
-	#(35 1 #liftFirstValue: 644104 false) 
-	#(35 1 #liftFirstValue: 644102 false) 
-	#(35 1 #liftFirstValue: 644100 false) 
-	#(34 1 #liftFirstValue: 609281 false) 
-	#(50 1 #liftFirstValue: 2063362 false) 
-	#(51 1 #liftFirstValue: 2162690 false) 
-	#(52 1 #liftFirstValue: 2256898 false) 
-	#(53 1 #liftFirstValue: 2348034 false) 
-	#(54 1 #liftFirstValue: 2423810 false) 
-	#(55 1 #liftFirstValue: 2515970 false) 
-	#(35 1 #liftFirstValue: 644103 false) 
-	#(37 1 #reduceActionForExtendedIdentifier1: 874497 false) 
-	#(42 1 #reduceActionForParametrizedIdentifier1: 1371137 false) 
-	#(39 1 #reduceActionForExtendedTypedIdentifier1: 1081345 false) 
-	#(40 1 #reduceActionForTypedIdentifier1: 1197057 false) 
-	#(33 1 #liftFirstValue: 549889 false) 
-	#(32 2 #liftFirstValue: 523265 false) 
-	#(47 2 #reduceActionForCallExpression1: 1871873 false) 
-	#(44 3 #reduceActionForFunctionExpression1: 1581057 false) 
-	#(57 3 #reduceActionForConditionalExpression1: 2701313 false) 
-	#(37 2 #reduceActionForExtendedIdentifier1: 874498 false) 
-	#(36 3 #reduceActionForModuleExpression1: 813057 false) 
-	#(38 3 #reduceActionForStructDefinition1: 953345 false) 
-	#(41 1 #reduceActionForParametrizedChoice1: 1324033 false) 
-	#(41 1 #reduceActionForParametrizedChoice1: 1324034 false) 
-	#(49 1 #reduceActionForExtendedArgumentList1: 1973249 false) 
-	#(56 3 #reduceActionForPairExpression1: 2623489 false) 
-	#(33 2 #liftFirstValue: 549890 false) 
-	#(32 3 #liftFirstValue: 523266 false) 
-	#(50 3 #reduceActionForBinaryExpression1: 2063361 false) 
-	#(51 3 #reduceActionForPlusExpression1: 2162689 false) 
-	#(53 3 #reduceActionForOrExpression1: 2348033 false) 
-	#(52 3 #reduceActionForArrowExpression1: 2256897 false) 
-	#(54 3 #reduceActionForAndExpression1: 2423809 false) 
-	#(55 3 #reduceActionForAssignmentExpression1: 2515969 false) 
-	#(46 1 #reduceActionForExtendedParameterList1: 1773569 false) 
-	#(57 4 #reduceActionForConditionalExpression1: 2701314 false) 
-	#(38 4 #reduceActionForStructDefinition1: 953346 false) 
-	#(43 1 #reduceActionForModifiedTypedIdentifier1: 1474561 false) 
-	#(39 3 #reduceActionForExtendedTypedIdentifier2: 1081346 false) 
-	#(40 3 #reduceActionForTypedIdentifier1: 1197058 false) 
-	#(48 3 #reduceActionForArgumentList1: 1921025 false) 
-	#(45 3 #reduceActionForParameterList1: 1719297 false) 
-	#(44 5 #reduceActionForFunctionExpression1: 1581058 false) 
-	#(57 5 #reduceActionForConditionalExpression1: 2701315 false) 
-	#(42 4 #reduceActionForParametrizedIdentifier1: 1371138 false) 
-	#(49 3 #reduceActionForExtendedTypedIdentifier2: 1973250 false) 
-	#(46 3 #reduceActionForExtendedTypedIdentifier2: 1773570 false) 
-	#(58 3 #reduceActionForElseifClause1: 2875393 false) 
-	#(59 2 #reduceActionForElseClause1: 2988033 false) 
-	#(43 3 #reduceActionForExtendedTypedIdentifier2: 1474562 false) 
-	#(58 4 #reduceActionForElseifClause2: 2875394 false)
+	#(30 2 #reduceActionForProgram1: 484353 false) 
+	#(56 1 #liftFirstValue: 2681858 false) 
+	#(35 1 #reduceActionForBaseExpression2: 649221 false) 
+	#(35 1 #reduceActionForBaseExpression2: 649224 false) 
+	#(35 1 #reduceActionForBaseExpression2: 649222 false) 
+	#(35 1 #reduceActionForBaseExpression2: 649220 false) 
+	#(34 1 #liftFirstValue: 614401 false) 
+	#(50 1 #liftFirstValue: 2109442 false) 
+	#(51 1 #liftFirstValue: 2208770 false) 
+	#(52 1 #liftFirstValue: 2315266 false) 
+	#(53 1 #liftFirstValue: 2406402 false) 
+	#(54 1 #liftFirstValue: 2482178 false) 
+	#(55 1 #liftFirstValue: 2574338 false) 
+	#(35 1 #reduceActionForBaseExpression2: 649223 false) 
+	#(37 1 #reduceActionForExtendedIdentifier1: 920577 false) 
+	#(42 1 #reduceActionForParametrizedIdentifier1: 1417217 false) 
+	#(39 1 #reduceActionForExtendedTypedIdentifier1: 1127425 false) 
+	#(40 1 #reduceActionForTypedIdentifier1: 1243137 false) 
+	#(33 1 #liftFirstValue: 555009 false) 
+	#(32 2 #liftFirstValue: 528385 false) 
+	#(47 2 #reduceActionForCallExpression1: 1917953 false) 
+	#(44 3 #reduceActionForFunctionExpression1: 1627137 false) 
+	#(57 3 #reduceActionForConditionalExpression1: 2759681 false) 
+	#(37 2 #reduceActionForExtendedIdentifier1: 920578 false) 
+	#(36 3 #reduceActionForModuleExpression1: 859137 false) 
+	#(38 3 #reduceActionForStructDefinition1: 999425 false) 
+	#(41 1 #reduceActionForParametrizedChoice1: 1370113 false) 
+	#(41 1 #reduceActionForParametrizedChoice1: 1370114 false) 
+	#(49 1 #reduceActionForExtendedArgumentList1: 2019329 false) 
+	#(56 3 #reduceActionForPairExpression1: 2681857 false) 
+	#(33 2 #liftFirstValue: 555010 false) 
+	#(32 3 #liftFirstValue: 528386 false) 
+	#(50 3 #reduceActionForBinaryExpression1: 2109441 false) 
+	#(51 3 #reduceActionForPlusExpression1: 2208769 false) 
+	#(53 3 #reduceActionForOrExpression1: 2406401 false) 
+	#(52 3 #reduceActionForArrowExpression1: 2315265 false) 
+	#(54 3 #reduceActionForAndExpression1: 2482177 false) 
+	#(55 3 #reduceActionForAssignmentExpression1: 2574337 false) 
+	#(46 1 #reduceActionForExtendedParameterList1: 1819649 false) 
+	#(57 4 #reduceActionForConditionalExpression1: 2759682 false) 
+	#(38 4 #reduceActionForStructDefinition1: 999426 false) 
+	#(43 1 #reduceActionForModifiedTypedIdentifier1: 1520641 false) 
+	#(39 3 #reduceActionForExtendedTypedIdentifier2: 1127426 false) 
+	#(40 3 #reduceActionForTypedIdentifier1: 1243138 false) 
+	#(48 3 #reduceActionForArgumentList1: 1967105 false) 
+	#(45 3 #reduceActionForParameterList1: 1765377 false) 
+	#(44 5 #reduceActionForFunctionExpression1: 1627138 false) 
+	#(57 5 #reduceActionForConditionalExpression1: 2759683 false) 
+	#(42 4 #reduceActionForParametrizedIdentifier1: 1417218 false) 
+	#(49 3 #reduceActionForExtendedTypedIdentifier2: 2019330 false) 
+	#(46 3 #reduceActionForExtendedTypedIdentifier2: 1819650 false) 
+	#(58 3 #reduceActionForElseifClause1: 2933761 false) 
+	#(59 2 #reduceActionForElseClause1: 3046401 false) 
+	#(43 3 #reduceActionForExtendedTypedIdentifier2: 1520642 false) 
+	#(58 4 #reduceActionForElseifClause2: 2933762 false)
 	).
 ]
 
@@ -275,7 +275,7 @@ JuliaParser class >> symbolNames [
 
 { #category : #generated }
 JuliaParser class >> symbolTypes [
-	^ #(#SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken nil nil nil #Object #SmaCCToken #Object #Object #JuliaModuleExpressionNode #JuliaExtendedIdentifierNode #JuliaStructDefinitionNode #JuliaExtendedTypedIdentifierNode #JuliaTypedIdentifierNode #JuliaParametrizedChoiceNode #JuliaParametrizedIdentifierNode #JuliaModifiedTypedIdentifierNode #JuliaFunctionExpressionNode #JuliaParameterListNode #JuliaExtendedParameterListNode #JuliaCallExpressionNode #JuliaArgumentListNode #JuliaExtendedArgumentListNode #Object #Object #Object #Object #Object #Object #Object #JuliaConditionalExpressionNode #JuliaElseifClauseNode #JuliaElseClauseNode #SmaCCToken #SmaCCErrorNode)
+	^ #(#SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #SmaCCToken #JuliaProgramNode #JuliaProgramNode nil #JuliaProgramNode #SmaCCToken #JuliaProgramNode #JuliaBaseExpressionNode #JuliaModuleExpressionNode #JuliaExtendedIdentifierNode #JuliaStructDefinitionNode #JuliaExtendedTypedIdentifierNode #JuliaTypedIdentifierNode #JuliaParametrizedChoiceNode #JuliaParametrizedIdentifierNode #JuliaModifiedTypedIdentifierNode #JuliaFunctionExpressionNode #JuliaParameterListNode #JuliaExtendedParameterListNode #JuliaCallExpressionNode #JuliaArgumentListNode #JuliaExtendedArgumentListNode #JuliaProgramNode #JuliaProgramNode #JuliaProgramNode #JuliaProgramNode #JuliaProgramNode #JuliaProgramNode #JuliaProgramNode #JuliaConditionalExpressionNode #JuliaElseifClauseNode #JuliaElseClauseNode #SmaCCToken #SmaCCErrorNode)
 ]
 
 { #category : #generated }
@@ -283,9 +283,9 @@ JuliaParser class >> transitionTable [
 ^#(
 #[1 0 6 0 11 0 6 0 12 0 6 0 13 0 6 0 14 0 6 0 15 0 6 0 24 0 6 0 26 0 6 0 27 0 6 0 28 0 9 0 30 0 13 0 31] 
 #[0 0 0 0 60] 
-#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 105 0 24 0 105 0 26 0 105 0 27 0 49 0 28 0 53 0 32 0 57 0 34 0 105 0 35 0 105 0 36 0 105 0 38 0 105 0 44 0 105 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 105 0 57] 
+#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 37 0 24 0 41 0 26 0 45 0 27 0 49 0 28 0 53 0 32 0 57 0 34 0 105 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 109 0 57] 
 #[0 0 113 0 26] 
-#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 105 0 24 0 105 0 26 0 105 0 27 0 117 0 34 0 105 0 35 0 105 0 36 0 105 0 38 0 105 0 44 0 105 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 105 0 57] 
+#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 37 0 24 0 41 0 26 0 45 0 27 0 117 0 34 0 105 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 109 0 57] 
 #[1 0 121 0 26 0 125 0 37] 
 #[0 0 129 0 15] 
 #[1 0 133 0 26 0 137 0 39 0 141 0 40 0 145 0 42] 
@@ -309,27 +309,27 @@ JuliaParser class >> transitionTable [
 #[1 0 74 0 1 0 74 0 2 0 74 0 3 0 74 0 4 0 74 0 7 0 74 0 11 0 74 0 12 0 74 0 13 0 74 0 14 0 74 0 15 0 74 0 17 0 74 0 19 0 74 0 20 0 74 0 21 0 189 0 22 0 74 0 24 0 74 0 26 0 74 0 27 0 74 0 28] 
 #[0 0 78 0 1 0 2 0 3 0 4 0 7 0 11 0 12 0 13 0 14 0 15 0 17 0 19 0 20 0 21 0 22 0 24 0 26 0 27 0 28] 
 #[1 0 193 0 2 0 197 0 45] 
-#[1 0 149 0 2 0 153 0 7 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 105 0 24 0 105 0 26 0 105 0 27 0 201 0 32 0 57 0 34 0 105 0 35 0 105 0 36 0 105 0 38 0 105 0 44 0 105 0 47 0 165 0 48 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 105 0 57] 
-#[1 0 82 0 10 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 105 0 24 0 105 0 26 0 105 0 27 0 205 0 32 0 57 0 34 0 105 0 35 0 105 0 36 0 105 0 38 0 105 0 44 0 105 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 105 0 57] 
+#[1 0 149 0 2 0 153 0 7 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 37 0 24 0 41 0 26 0 45 0 27 0 201 0 32 0 57 0 34 0 105 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 0 165 0 48 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 109 0 57] 
+#[1 0 82 0 10 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 37 0 24 0 41 0 26 0 45 0 27 0 205 0 32 0 57 0 34 0 105 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 109 0 57] 
 #[0 0 209 0 10] 
 #[1 0 133 0 26 0 213 0 39 0 141 0 40 0 145 0 42] 
 #[1 0 86 0 4 0 86 0 5 0 86 0 6 0 86 0 10 0 217 0 16 0 86 0 18 0 86 0 28] 
 #[0 0 221 0 10] 
 #[1 0 90 0 10 0 225 0 28] 
 #[1 0 94 0 4 0 229 0 5 0 233 0 6 0 94 0 10 0 94 0 18 0 94 0 28 0 237 0 41] 
-#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 105 0 24 0 105 0 26 0 105 0 27 0 241 0 34 0 105 0 35 0 105 0 36 0 105 0 38 0 105 0 44 0 105 0 47 0 245 0 49 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 105 0 57] 
-#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 253 0 24 0 253 0 26 0 253 0 27 0 249 0 34 0 253 0 35 0 253 0 36 0 253 0 38 0 253 0 44 0 253 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 253 0 56 0 253 0 57] 
+#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 37 0 24 0 41 0 26 0 45 0 27 0 241 0 34 0 105 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 0 245 0 49 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 109 0 57] 
+#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 37 0 24 0 41 0 26 0 45 0 27 0 249 0 34 0 253 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 253 0 56 0 109 0 57] 
 #[0 0 98 0 1 0 2 0 3 0 4 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 17 0 19 0 20 0 21 0 22 0 24 0 26 0 27 0 28 0 60] 
-#[1 0 102 0 1 0 102 0 2 0 102 0 3 0 102 0 4 0 102 0 7 0 102 0 8 0 102 0 9 0 102 0 10 0 7 0 11 0 11 0 12 0 15 0 13 0 19 0 14 0 23 0 15 0 102 0 17 0 102 0 19 0 102 0 20 0 102 0 21 0 102 0 22 0 27 0 24 0 31 0 26 0 35 0 27 0 39 0 28 1 5 0 32 0 57 0 34 0 105 0 35 0 105 0 36 0 105 0 38 0 105 0 44 0 105 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 105 0 57 0 102 0 60] 
+#[1 0 102 0 1 0 102 0 2 0 102 0 3 0 102 0 4 0 102 0 7 0 102 0 8 0 102 0 9 0 102 0 10 0 7 0 11 0 11 0 12 0 15 0 13 0 19 0 14 0 23 0 15 0 102 0 17 0 102 0 19 0 102 0 20 0 102 0 21 0 102 0 22 0 27 0 24 0 31 0 26 0 35 0 27 0 39 0 28 1 5 0 32 0 57 0 34 0 105 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 109 0 57 0 102 0 60] 
 #[0 0 106 0 1 0 2 0 3 0 4 0 7 0 11 0 12 0 13 0 14 0 15 0 17 0 19 0 20 0 21 0 22 0 24 0 26 0 27 0 28] 
-#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 105 0 24 0 105 0 26 0 105 0 27 0 249 0 34 0 105 0 35 0 105 0 36 0 105 0 38 0 105 0 44 0 105 0 47 0 81 0 50 1 9 0 51 1 9 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 105 0 57] 
-#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 105 0 24 0 105 0 26 0 105 0 27 0 249 0 34 0 105 0 35 0 105 0 36 0 105 0 38 0 105 0 44 0 105 0 47 0 81 0 50 0 85 0 51 1 13 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 105 0 57] 
-#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 105 0 24 0 105 0 26 0 105 0 27 0 249 0 34 0 105 0 35 0 105 0 36 0 105 0 38 0 105 0 44 0 105 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 1 17 0 54 1 17 0 55 0 105 0 56 0 105 0 57] 
-#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 105 0 24 0 105 0 26 0 105 0 27 0 249 0 34 0 105 0 35 0 105 0 36 0 105 0 38 0 105 0 44 0 105 0 47 0 81 0 50 0 85 0 51 1 21 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 105 0 57] 
-#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 105 0 24 0 105 0 26 0 105 0 27 0 249 0 34 0 105 0 35 0 105 0 36 0 105 0 38 0 105 0 44 0 105 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 1 25 0 55 0 105 0 56 0 105 0 57] 
-#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 105 0 24 0 105 0 26 0 105 0 27 0 249 0 34 0 105 0 35 0 105 0 36 0 105 0 38 0 105 0 44 0 105 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 1 29 0 55 0 105 0 56 0 105 0 57] 
+#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 37 0 24 0 41 0 26 0 45 0 27 0 249 0 34 0 105 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 0 81 0 50 1 9 0 51 1 9 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 109 0 57] 
+#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 37 0 24 0 41 0 26 0 45 0 27 0 249 0 34 0 105 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 0 81 0 50 0 85 0 51 1 13 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 109 0 57] 
+#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 37 0 24 0 41 0 26 0 45 0 27 0 249 0 34 0 105 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 1 17 0 54 1 17 0 55 0 105 0 56 0 109 0 57] 
+#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 37 0 24 0 41 0 26 0 45 0 27 0 249 0 34 0 105 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 0 81 0 50 0 85 0 51 1 21 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 109 0 57] 
+#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 37 0 24 0 41 0 26 0 45 0 27 0 249 0 34 0 105 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 1 25 0 55 0 105 0 56 0 109 0 57] 
+#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 37 0 24 0 41 0 26 0 45 0 27 0 249 0 34 0 105 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 1 29 0 55 0 105 0 56 0 109 0 57] 
 #[1 1 33 0 26 1 37 0 46] 
-#[1 0 110 0 1 0 110 0 2 0 110 0 3 0 110 0 4 0 110 0 7 0 43 0 11 0 47 0 12 0 51 0 13 0 55 0 14 0 59 0 15 0 110 0 17 0 110 0 19 0 110 0 20 0 110 0 21 0 110 0 22 0 63 0 24 0 67 0 26 0 71 0 27 0 110 0 28 1 41 0 32 0 57 0 34 0 105 0 35 0 105 0 36 0 105 0 38 0 105 0 44 0 105 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 105 0 57] 
+#[1 0 110 0 1 0 110 0 2 0 110 0 3 0 110 0 4 0 110 0 7 0 43 0 11 0 47 0 12 0 51 0 13 0 55 0 14 0 59 0 15 0 110 0 17 0 110 0 19 0 110 0 20 0 110 0 21 0 110 0 22 0 63 0 24 0 67 0 26 0 71 0 27 0 110 0 28 1 41 0 32 0 57 0 34 0 105 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 109 0 57] 
 #[1 0 114 0 1 0 114 0 2 0 114 0 3 0 114 0 4 0 114 0 7 1 45 0 9 0 114 0 11 0 114 0 12 0 114 0 13 0 114 0 14 0 114 0 15 0 114 0 17 0 114 0 19 0 114 0 20 0 114 0 21 0 114 0 22 0 114 0 24 0 114 0 26 0 114 0 27 0 114 0 28 1 49 0 58] 
 #[0 0 118 0 10] 
 #[0 0 122 0 1 0 2 0 3 0 4 0 7 0 11 0 12 0 13 0 14 0 15 0 17 0 19 0 20 0 21 0 22 0 24 0 26 0 27 0 28] 
@@ -355,20 +355,20 @@ JuliaParser class >> transitionTable [
 #[1 0 178 0 3 1 81 0 4] 
 #[0 1 85 0 3] 
 #[0 1 89 0 10] 
-#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 105 0 24 0 105 0 26 0 105 0 27 1 93 0 34 0 105 0 35 0 105 0 36 0 105 0 38 0 105 0 44 0 105 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 105 0 57] 
+#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 37 0 24 0 41 0 26 0 45 0 27 1 93 0 34 0 105 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 109 0 57] 
 #[1 0 182 0 1 0 182 0 2 0 182 0 3 0 182 0 4 0 182 0 7 1 97 0 8 0 182 0 11 0 182 0 12 0 182 0 13 0 182 0 14 0 182 0 15 0 182 0 17 0 182 0 19 0 182 0 20 0 182 0 21 0 182 0 22 0 182 0 24 0 182 0 26 0 182 0 27 0 182 0 28 1 101 0 59] 
 #[0 0 186 0 1 0 2 0 3 0 4 0 7 0 11 0 12 0 13 0 14 0 15 0 17 0 19 0 20 0 21 0 22 0 24 0 26 0 27 0 28] 
 #[1 1 105 0 4 0 190 0 18] 
 #[0 1 109 0 18] 
 #[0 0 194 0 10] 
 #[0 0 198 0 4 0 10 0 18 0 28] 
-#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 105 0 24 0 105 0 26 0 105 0 27 0 241 0 34 0 105 0 35 0 105 0 36 0 105 0 38 0 105 0 44 0 105 0 47 1 113 0 49 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 105 0 57] 
+#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 37 0 24 0 41 0 26 0 45 0 27 0 241 0 34 0 105 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 1 113 0 49 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 109 0 57] 
 #[0 0 202 0 1 0 2 0 3 0 4 0 7 0 11 0 12 0 13 0 14 0 15 0 17 0 19 0 20 0 21 0 22 0 24 0 26 0 27 0 28] 
 #[1 1 33 0 26 1 117 0 46] 
 #[0 0 206 0 1 0 2 0 3 0 4 0 7 0 11 0 12 0 13 0 14 0 15 0 17 0 19 0 20 0 21 0 22 0 24 0 26 0 27 0 28] 
 #[0 0 210 0 1 0 2 0 3 0 4 0 7 0 11 0 12 0 13 0 14 0 15 0 17 0 19 0 20 0 21 0 22 0 24 0 26 0 27 0 28] 
-#[1 0 149 0 2 0 153 0 7 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 105 0 24 0 105 0 26 0 105 0 27 1 121 0 32 0 57 0 34 0 105 0 35 0 105 0 36 0 105 0 38 0 105 0 44 0 105 0 47 0 165 0 48 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 105 0 57] 
-#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 105 0 24 0 105 0 26 0 105 0 27 1 125 0 32 0 57 0 34 0 105 0 35 0 105 0 36 0 105 0 38 0 105 0 44 0 105 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 105 0 57] 
+#[1 0 149 0 2 0 153 0 7 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 37 0 24 0 41 0 26 0 45 0 27 1 121 0 32 0 57 0 34 0 105 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 0 165 0 48 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 109 0 57] 
+#[1 0 17 0 11 0 21 0 12 0 25 0 13 0 29 0 14 0 33 0 15 0 37 0 24 0 41 0 26 0 45 0 27 1 125 0 32 0 57 0 34 0 105 0 35 0 65 0 36 0 69 0 38 0 73 0 44 0 77 0 47 0 81 0 50 0 85 0 51 0 85 0 52 0 93 0 53 0 97 0 54 0 97 0 55 0 105 0 56 0 109 0 57] 
 #[0 0 214 0 1 0 2 0 3 0 4 0 7 0 11 0 12 0 13 0 14 0 15 0 17 0 19 0 20 0 21 0 22 0 24 0 26 0 27 0 28] 
 #[1 0 133 0 26 1 57 0 40 0 145 0 42 1 129 0 43] 
 #[0 0 218 0 4 0 5 0 6 0 10 0 18 0 28] 
@@ -406,6 +406,13 @@ JuliaParser >> reduceActionForArrowExpression1: nodes [
 JuliaParser >> reduceActionForAssignmentExpression1: nodes [
 	| result |
 	result := JuliaAssignmentExpressionNode new.
+	^ result
+]
+
+{ #category : #'generated-reduction actions' }
+JuliaParser >> reduceActionForBaseExpression2: nodes [
+	| result |
+	result := JuliaBaseExpressionNode new.
 	^ result
 ]
 
@@ -546,6 +553,15 @@ JuliaParser >> reduceActionForParametrizedIdentifier1: nodes [
 JuliaParser >> reduceActionForPlusExpression1: nodes [
 	| result |
 	result := JuliaPlusExpressionNode new.
+	result lhs: (nodes at: 1).
+	result rhs: (nodes at: 3).
+	^ result
+]
+
+{ #category : #'generated-reduction actions' }
+JuliaParser >> reduceActionForProgram1: nodes [
+	| result |
+	result := nodes at: 2.
 	^ result
 ]
 
